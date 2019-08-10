@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
         name="pybricks-fll",
-        version="0.2",
+        version="0.3",
         author="Lawrence (Drew) Whisenant",
         author_email="dwhisenant@FIRSTinAlabama.org",
         description="An interfaces package to write EV3 Python code.",
