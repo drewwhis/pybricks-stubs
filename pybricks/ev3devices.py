@@ -32,7 +32,7 @@ class Motor:
         """
         ...
 
-    def angle(self) -> float:
+    def angle(self) -> int:
         """
         Get the rotation angle of the motor.
 
@@ -41,7 +41,7 @@ class Motor:
         """
         ...
 
-    def reset_angle(self, angle: float):
+    def reset_angle(self, angle: int):
         """
         Reset the accumulated rotation angle of the motor.
 
@@ -50,7 +50,7 @@ class Motor:
         """
         ...
 
-    def speed(self) -> float:
+    def speed(self) -> int:
         """
         Get the speed (angular velocity) of the motor.
 
@@ -68,7 +68,7 @@ class Motor:
         """
         ...
 
-    def run(self, speed: float):
+    def run(self, speed: int):
         """
         Keep the motor running at a constant speed (angular velocity). The motor will accelerate towards the requested speed and the duty cycle is automatically adjusted to keep the speed constant, even under some load. This continues in the background until you give the motor a new command or the program stops.
 
@@ -77,7 +77,7 @@ class Motor:
         """
         ...
 
-    def run_time(self, speed: float, time: int, stop_type: Stop = Stop.COAST, wait: bool = True):
+    def run_time(self, speed: int, time: int, stop_type: Stop = Stop.COAST, wait: bool = True):
         """
         Run the motor at a constant speed (angular velocity) for a given amount of time. The motor will accelerate towards the requested speed and the duty cycle is automatically adjusted to keep the speed constant, even under some load. It begins to decelerate just in time to reach stand still after the specified duration.
 
@@ -92,7 +92,7 @@ class Motor:
         """
         ...
 
-    def run_angle(self, speed: float, rotation_angle: float, stop_type: Stop = Stop.COAST, wait: bool = True):
+    def run_angle(self, speed: int, rotation_angle: int, stop_type: Stop = Stop.COAST, wait: bool = True):
         """
         Run the motor at a constant speed (angular velocity) by a given angle. The motor will accelerate towards the requested speed and the duty cycle is automatically adjusted to keep the speed constant, even under some load. It begins to decelerate just in time so that it comes to a stand still after traversing the given angle.
 
@@ -107,7 +107,7 @@ class Motor:
         """
         ...
 
-    def run_target(self, speed: float, target_angle: float, stop_type: Stop = Stop.COAST, wait: bool = True):
+    def run_target(self, speed: int, target_angle: int, stop_type: Stop = Stop.COAST, wait: bool = True):
         """
         Run the motor at a constant speed (angular velocity) towards a given target angle. The motor will accelerate towards the requested speed and the duty cycle is automatically adjusted to keep the speed constant, even under some load. It begins to decelerate just in time so that it comes to a stand still at the given target angle. The direction of rotation is automatically selected based on the target angle.
 
@@ -122,7 +122,7 @@ class Motor:
         """
         ...
 
-    def track_target(self, target_angle: float):
+    def track_target(self, target_angle: int):
         """
         Track a target angle that varies in time. This function is quite similar to run_target(), but speed and acceleration settings are ignored: it will move to the target angle as fast as possible. Instead, you adjust speed and acceleration by choosing how fast or slow you vary the target_angle. This method is useful in fast loops where the motor target changes continuously.
 
@@ -140,7 +140,7 @@ class Motor:
         """
         ...
 
-    def run_until_stalled(self, speed: float, stop_type: Stop = Stop.COAST, duty_limit: float = 100):
+    def run_until_stalled(self, speed: int, stop_type: Stop = Stop.COAST, duty_limit: float = 100):
         """
         Run the motor at a constant speed (angular velocity) until it stalls. The motor is considered stalled when it cannot move even with the maximum torque. See stalled() for a more precise definition. The duty_limit argument lets you temporarily limit the motor torque during this maneuver. This is useful to avoid applying the full motor torque to a geared or lever mechanism.
 
@@ -164,7 +164,7 @@ class Motor:
         """
         ...
 
-    def set_run_settings(self, max_speed: float, acceleration: float):
+    def set_run_settings(self, max_speed: int, acceleration: int):
         """
         Configure the maximum speed and acceleration/deceleration of the motor for all run commands. This applies to the run, run_time, run_angle, run_target, or run_until_stalled commands you give the motor. See also the default parameters for each motor.
 
@@ -175,7 +175,7 @@ class Motor:
         """
         ...
 
-    def set_pid_settings(self, kp: int, ki: int, kd: int, tight_loop_limit: float, angle_tolerance: float, speed_tolerance: float, stall_speed: float, stall_time: float):
+    def set_pid_settings(self, kp: int, ki: int, kd: int, tight_loop_limit: float, angle_tolerance: int, speed_tolerance: int, stall_speed: int, stall_time: int):
         """
         Configure the settings of the position and speed controllers. See also pid and the default parameters for each motor.
 
@@ -252,7 +252,7 @@ class ColorSensor:
         """
         ...
 
-    def ambient(self) -> float:
+    def ambient(self) -> int:
         """
         Measure the ambient light intensity.
 
@@ -261,7 +261,7 @@ class ColorSensor:
         """
         ...
 
-    def reflection(self) -> float:
+    def reflection(self) -> int:
         """
         Measure the reflection of a surface using a red light.
 
@@ -270,7 +270,7 @@ class ColorSensor:
         """
         ...
 
-    def rgb(self) -> Tuple[int, int, int]:
+    def rgb(self) -> Tuple[float, float, float]:
         """
         Measure the reflection of a surface using a red, green, and then a blue light.
 
@@ -368,7 +368,7 @@ class UltrasonicSensor:
         ...
 
 
-class GyroscopicSensor:
+class GyroSensor:
     """
     LEGO® MINDSTORMS® EV3 Gyro Sensor. Element 99380/6138411, contained in:
     - 45544: LEGO® MINDSTORMS® Education EV3 Core Set (2013)
@@ -386,7 +386,7 @@ class GyroscopicSensor:
         """
         ...
 
-    def speed(self) -> float:
+    def speed(self) -> int:
         """
         Get the speed (angular velocity) of the sensor.
 
@@ -395,7 +395,7 @@ class GyroscopicSensor:
         """
         ...
 
-    def angle(self) -> float:
+    def angle(self) -> int:
         """
         Get the accumulated angle of the sensor.
 
@@ -404,7 +404,7 @@ class GyroscopicSensor:
         """
         ...
 
-    def reset_angle(self, angle: float):
+    def reset_angle(self, angle: int):
         """
         Set the rotation angle of the sensor to a desired value.
 
