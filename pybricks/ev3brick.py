@@ -1,4 +1,6 @@
-from pybricks.parameters import (Align as Align, Color as Color)
+from pybricks.parameters import Align, Button, Color
+from typing import List, Tuple
+
 
 class sound:
     @classmethod
@@ -46,7 +48,7 @@ class display:
         """
 
     @classmethod
-    def image(cls, file_name: str, alignment: _Align = _Align.CENTER, coordinate: tuple = None, clear: bool = True):
+    def image(cls, file_name: str, alignment: Align = Align.CENTER, coordinate: Tuple[int, int] = None, clear: bool = True):
         """
         Show an image file. You can specify its placement either using alignmentor by specifying a coordinate, 
         but not both.
@@ -56,50 +58,48 @@ class display:
 
         alignment : Align – Where to place the image (Default: Align.CENTER).
 
-        coordinate : tuple – (x, y) coordinate tuple. It is the top-left corner of the image (Default: None).
+        coordinate : Tuple[int, int] – (x, y) coordinate tuple. It is the top-left corner of the image (Default: None).
 
         clear : bool – Whether to clear the screen before showing the image (Default:True).
         """
         ...
 
     @classmethod
-    def text(cls, text: str, coordinate: tuple = None):
+    def text(cls, text: str, coordinate: Tuple[int, int] = None):
         """
         Display text.
 
         ----------
         text : str – The text to display.
 
-        coordinate : tuple – (x, y) coordinate tuple. It is the top-left corner of the first character. If no coordinate is specified, it is printed on the next line.
+        coordinate : Tuple[int, int] – (x, y) coordinate tuple (Default: None). It is the top-left corner of the first character. If no coordinate is specified, it is printed on the next line.
         """
         ...
 
 
 class battery:
     @classmethod
-    def current(cls) -> float:
+    def current(cls) -> int:
         """
         Get the current supplied by the battery.
 
         ----------
-        Returns - Battery current.
-        Return type - current: mA
+        Returns - Battery current (mA).
         """
         ...
 
     @classmethod
-    def voltage(cls) -> float:
+    def voltage(cls) -> int:
         """
         Get the voltage of the battery.
 
         ----------
-        Returns - Battery voltage.
-        Return type - voltage: mV
+        Returns - Battery voltage (mV).
         """
         ...
 
 
-def buttons(channel: int) -> list:
+def buttons(channel: int) -> List[Button]:
     """
     Check which buttons on the infrared remote are pressed.
 
@@ -108,12 +108,11 @@ def buttons(channel: int) -> list:
 
     ----------
     Returns - List of pressed buttons on the remote on the specified channel.
-    Return type - List of Button
     """
     ...
 
 
-def light(color: _Color):
+def light(color: Color):
     """
     Set the color of the brick light.
 

@@ -1,40 +1,34 @@
-from pybricks.parameters import (Color, Direction, Port, Stop)
+from pybricks.parameters import Button, Color, Direction, Port, Stop
+from typing import List, Tuple
 
 
 class Motor:
     """
-    LEGO® MINDSTORMS® EV3 Medium or Large Motor.
-    Element 99455/6148292 or 95658/6148278, contained in:
-      31313: LEGO® MINDSTORMS® EV3 (2013)
-      45544: LEGO® MINDSTORMS® Education EV3 Core Set (2013)
-      45503 or 45502: Separate part (2013)
+    LEGO® MINDSTORMS® EV3 Medium or Large Motor. Element 99455/6148292 or 95658/6148278, contained in:
+    - 31313: LEGO® MINDSTORMS® EV3 (2013)
+    - 45544: LEGO® MINDSTORMS® Education EV3 Core Set (2013)
+    - 45503 or 45502: Separate part (2013)
     """
 
-    def __init__(self, port: Port, direction: Direction = Direction.CLOCKWISE, gears: list = None):
-        ...
+    def __init__(self, port: Port, direction: Direction = Direction.CLOCKWISE, gears: List[int, int] = None):
         """
-    LEGO® MINDSTORMS® EV3 Medium or Large Motor.
-    Element 99455/6148292 or 95658/6148278, contained in:
-      31313: LEGO® MINDSTORMS® EV3 (2013)
-      45544: LEGO® MINDSTORMS® Education EV3 Core Set (2013)
-      45503 or 45502: Separate part (2013)
-    
-    ----------
-    port : Port – Port to which the motor is connected.
-    
-    direction : Direction – Positive speed direction (Default: Direction.CLOCKWISE).
-    
-    gears : list – List of gears linked to the motor (Default:None).
-    For example: [12, 36] represents a gear train with a 12-tooth and a 36-tooth gear. Use a list of lists for multiple gear trains, such as [[12, 36], [20, 16, 40]]. The gears setting is only available for motors with rotation sensors.
-    """
+        LEGO® MINDSTORMS® EV3 Medium or Large Motor.
+        ----------
+
+        port : Port – Port to which the motor is connected.
+
+        direction : Direction – Positive speed direction (Default: Direction.CLOCKWISE).
+
+        gears : List[int, int] – List of gears linked to the motor (Default:None). For example: [12, 36] represents a gear train with a 12-tooth and a 36-tooth gear. Use a list of lists for multiple gear trains, such as [[12, 36], [20, 16, 40]]. The gears setting is only available for motors with rotation sensors.
+        """
         ...
 
     def dc(self, duty: float):
         """
-        Set the duty cycle of the motor. For motors without rotation sensors.
+        Set the duty cycle of the motor.
 
         ----------
-        duty : float - The duty cycle as a percentagg (-100.0 to 100).
+        duty : float - The duty cycle as a percentage (-100.0 to 100).
         """
         ...
 
@@ -43,9 +37,7 @@ class Motor:
         Get the rotation angle of the motor.
 
         ----------
-        Returns - Motor angle.
-
-        Return type - angle in degrees
+        Returns - Motor angle in degrees.
         """
         ...
 
@@ -63,8 +55,7 @@ class Motor:
         Get the speed (angular velocity) of the motor.
 
         ----------
-        Returns - Motor speed.
-        Return type - rotational speed: deg/s
+        Returns - Motor speed in degrees/second.
         """
         ...
 
@@ -82,18 +73,18 @@ class Motor:
         Keep the motor running at a constant speed (angular velocity). The motor will accelerate towards the requested speed and the duty cycle is automatically adjusted to keep the speed constant, even under some load. This continues in the background until you give the motor a new command or the program stops.
 
         ----------
-        speed : float – Speed of the motor in deg/s.
+        speed : float – Speed of the motor in degrees/second.
         """
         ...
 
-    def run_time(self, speed: float, time: float, stop_type: Stop = Stop.COAST, wait: bool = True):
+    def run_time(self, speed: float, time: int, stop_type: Stop = Stop.COAST, wait: bool = True):
         """
         Run the motor at a constant speed (angular velocity) for a given amount of time. The motor will accelerate towards the requested speed and the duty cycle is automatically adjusted to keep the speed constant, even under some load. It begins to decelerate just in time to reach stand still after the specified duration.
 
         ----------
-        speed: float - Speed of the motor (deg/s).
+        speed : float - Speed of the motor (degrees/second).
 
-        time : float – Duration of the maneuver (ms).
+        time : int – Duration of the maneuver (milliseconds).
 
         stop_type : Stop – Whether to coast, brake, or hold after coming to a stand still (Default: Stop.COAST).
 
@@ -106,9 +97,9 @@ class Motor:
         Run the motor at a constant speed (angular velocity) by a given angle. The motor will accelerate towards the requested speed and the duty cycle is automatically adjusted to keep the speed constant, even under some load. It begins to decelerate just in time so that it comes to a stand still after traversing the given angle.
 
         ----------
-        speed : float – Speed of the motor (deg/s).
+        speed : float – Speed of the motor (degrees/second).
 
-        rotation_angle : float – Angle by which the motor should rotate (deg).
+        rotation_angle : float – Angle by which the motor should rotate (degree).
 
         stop_type : Stop – Whether to coast, brake, or hold after coming to a stand still (Default: Stop.COAST).
 
@@ -121,7 +112,7 @@ class Motor:
         Run the motor at a constant speed (angular velocity) towards a given target angle. The motor will accelerate towards the requested speed and the duty cycle is automatically adjusted to keep the speed constant, even under some load. It begins to decelerate just in time so that it comes to a stand still at the given target angle. The direction of rotation is automatically selected based on the target angle.
 
         ----------
-        speed : float - Absolute speed of the motor (deg/s). The direction will be automatically selected based on the target angle: it makes no difference if you specify a positive or negative speed.
+        speed : float - Absolute speed of the motor (degrees/second). The direction will be automatically selected based on the target angle: it makes no difference if you specify a positive or negative speed.
 
         target_angle : float – Target angle that the motor should rotate to, regardless of its current angle (degrees).
 
@@ -146,8 +137,6 @@ class Motor:
 
         ----------
         Returns - True if the motor is stalled, False if it is not.
-
-        Return type - bool
         """
         ...
 
@@ -156,7 +145,7 @@ class Motor:
         Run the motor at a constant speed (angular velocity) until it stalls. The motor is considered stalled when it cannot move even with the maximum torque. See stalled() for a more precise definition. The duty_limit argument lets you temporarily limit the motor torque during this maneuver. This is useful to avoid applying the full motor torque to a geared or lever mechanism.
 
         ----------
-        speed : float - Speed of the motor (deg/s).
+        speed : float - Speed of the motor (degrees/second).
 
         stop_type : Stop – Whether to coast, brake, or hold after coming to a stand still (Default: Stop.COAST).
 
@@ -180,9 +169,9 @@ class Motor:
         Configure the maximum speed and acceleration/deceleration of the motor for all run commands. This applies to the run, run_time, run_angle, run_target, or run_until_stalled commands you give the motor. See also the default parameters for each motor.
 
         ----------
-        max_speed : float – Maximum speed of the motor during a motor command (deg/s).
+        max_speed : float – Maximum speed of the motor during a motor command (degrees/second).
 
-        acceleration : float –  Acceleration  towards  the  targetspeed and deceleration towards stand still (deg/s/s). This should be a positive value. The motor will automatically change the sign to decelerate as needed.
+        acceleration : float –  Acceleration  towards  the  targetspeed and deceleration towards stand still (degrees/second/second). This should be a positive value. The motor will automatically change the sign to decelerate as needed.
         """
         ...
 
@@ -213,17 +202,14 @@ class Motor:
 class TouchSensor:
     """
     LEGO® MINDSTORMS® EV3 Touch Sensor. Element 95648/6138404, contained in:
-      31313: LEGO® MINDSTORMS® EV3 (2013)
-      45544: LEGO® MINDSTORMS® Education EV3 Core Set (2013)
-      45507: Separate part (2013)
+    - 31313: LEGO® MINDSTORMS® EV3 (2013)
+    - 45544: LEGO® MINDSTORMS® Education EV3 Core Set (2013)
+    - 45507: Separate part (2013)
     """
 
     def __init__(self, port: Port):
         """
-        LEGO® MINDSTORMS® EV3 Touch Sensor. Element 95648/6138404, contained in:
-          31313: LEGO® MINDSTORMS® EV3 (2013)
-          45544: LEGO® MINDSTORMS® Education EV3 Core Set (2013)
-          45507: Separate part (2013)
+        LEGO® MINDSTORMS® EV3 Touch Sensor.
 
         ----------
         port : Port – Port to which the sensor is connected.
@@ -236,8 +222,6 @@ class TouchSensor:
 
         ----------
         Returns - True if the sensor is pressed, False if it is not pressed.
-
-        Return type - bool
         """
         ...
 
@@ -245,17 +229,14 @@ class TouchSensor:
 class ColorSensor:
     """
     LEGO® MINDSTORMS® EV3 Color Sensor. Element 95650/6128869, contained in:
-      31313: LEGO® MINDSTORMS® EV3 (2013)
-      45544: LEGO® MINDSTORMS® Education EV3 Core Set (2013)
-      45506: Separate part (2013)
+    - 31313: LEGO® MINDSTORMS® EV3 (2013)
+    - 45544: LEGO® MINDSTORMS® Education EV3 Core Set (2013)
+    - 45506: Separate part (2013)
     """
 
     def __init__(self, port: Port):
         """
-        LEGO® MINDSTORMS® EV3 Color Sensor. Element 95650/6128869, contained in:
-          31313: LEGO® MINDSTORMS® EV3 (2013)
-          45544: LEGO® MINDSTORMS® Education EV3 Core Set (2013)
-          45506: Separate part (2013)
+        LEGO® MINDSTORMS® EV3 Color Sensor.
 
         ----------
         port : Port – Port to which the sensor is connected.
@@ -267,8 +248,7 @@ class ColorSensor:
         Measure the color of a surface.
 
         ----------
-        Returns - Color.BLACK, Color.BLUE, Color.GREEN, Color.YELLOW, Color.RED, Color.WHITE Color.BROWN o rNone.
-        Return type - Color, or None if no color is detected.
+        Returns - Color.BLACK, Color.BLUE, Color.GREEN, Color.YELLOW, Color.RED, Color.WHITE Color.BROWN or None.
         """
         ...
 
@@ -278,7 +258,6 @@ class ColorSensor:
 
         ----------
         Returns - Ambient light intensity, ranging from 0 (dark) to 100 (bright).
-        Return type - float
         """
         ...
 
@@ -288,17 +267,15 @@ class ColorSensor:
 
         ----------
         Returns - Reflection, ranging from 0 (no reflection) to 100 (high reflection).
-        Return type: float
         """
         ...
 
-    def rgb(self) -> tuple:
+    def rgb(self) -> Tuple[int, int, int]:
         """
         Measure the reflection of a surface using a red, green, and then a blue light.
 
         ----------
         Returns - Reflection for red, green, and blue light, each ranging from 0.0 (no reflection) to 100.0(high reflection).
-        Return type - tuple of three floats.
         """
         ...
 
@@ -306,15 +283,13 @@ class ColorSensor:
 class InfraredSensor:
     """
     LEGO® MINDSTORMS® EV3 Infrared Sensor and Beacon. Element 95654/6132629 and 72156/6127283, contained in:
-      31313: LEGO® MINDSTORMS® EV3 (2013)
-      45509 and 45508: Separate parts (2013)
+    - 31313: LEGO® MINDSTORMS® EV3 (2013)
+    - 45509 and 45508: Separate parts (2013)
     """
 
-    def __init__(self, port):
+    def __init__(self, port: Port):
         """
-        LEGO® MINDSTORMS® EV3 Infrared Sensor and Beacon. Element 95654/6132629 and 72156/6127283, contained in:
-          31313: LEGO® MINDSTORMS® EV3 (2013)
-          45509 and 45508: Separate parts (2013)
+        LEGO® MINDSTORMS® EV3 Infrared Sensor and Beacon. 
 
         ----------
         port : Port – Port to which the sensor is connected.
@@ -327,11 +302,10 @@ class InfraredSensor:
 
         ----------
         Returns - Relative distance ranging from 0 (closest) to 100 (farthest).
-        Return type - float
         """
         ...
 
-    def beacon(self, channel: int) -> tuple:
+    def beacon(self, channel: int) -> Tuple[float, float]:
         """
         Measure the relative distance and angle between the remote and the infrared sensor.
 
@@ -339,12 +313,11 @@ class InfraredSensor:
         channel : int – Channel number of the remote.
 
         ----------
-        Returns - Tuple of relative distance (0 to 100) and approximate angle (-75 to 75 degrees) between remote and infrared sensor.
-        Return type - (relative distance: %,angle: deg) or (None,None) if no remote is detected.
+        Returns - Tuple of relative distance (0 to 100) and approximate angle (-75 to 75 degrees) between remote and infrared sensor or (None,None) if no remote is detected.
         """
         ...
 
-    def buttons(self, channel: int) -> list:
+    def buttons(self, channel: int) -> List[Button]:
         """
         Check which buttons on the infrared remote are pressed.
 
@@ -353,7 +326,6 @@ class InfraredSensor:
 
         ----------
         Returns - List of pressed buttons on the remote on the specified channel.
-        Return type - List of Button
         """
         ...
 
@@ -361,22 +333,20 @@ class InfraredSensor:
 class UltrasonicSensor:
     """
     LEGO® MINDSTORMS® EV3 Ultrasonic Sensor. Element 95652/6138403, contained in:
-      45544: LEGO® MINDSTORMS® Education EV3 Core Set (2013)
-      45504: Separate part (2013)
+    - 45544: LEGO® MINDSTORMS® Education EV3 Core Set (2013)
+    - 45504: Separate part (2013)
     """
 
     def __init__(self, port: Port):
         """
-        LEGO® MINDSTORMS® EV3 Ultrasonic Sensor. Element 95652/6138403, contained in:
-          45544: LEGO® MINDSTORMS® Education EV3 Core Set (2013)
-          45504: Separate part (2013)
+        LEGO® MINDSTORMS® EV3 Ultrasonic Sensor.
 
         ----------
         port : Port – Port to which the sensor is connected.
         """
         ...
 
-    def distance(self, silent: bool = False) -> float:
+    def distance(self, silent: bool = False) -> int:
         """
         Measure the distance between the sensor and an object using ultrasonic sound waves.
 
@@ -385,7 +355,6 @@ class UltrasonicSensor:
 
         ----------
         Returns - Distance (millimeters).
-        Return type - float
         """
         ...
 
@@ -395,7 +364,6 @@ class UltrasonicSensor:
 
         ----------
         Returns - True if ultrasonic sounds are detected, False if not.
-        Return type - bool
         """
         ...
 
@@ -403,15 +371,13 @@ class UltrasonicSensor:
 class GyroscopicSensor:
     """
     LEGO® MINDSTORMS® EV3 Gyro Sensor. Element 99380/6138411, contained in:
-      45544: LEGO® MINDSTORMS® Education EV3 Core Set (2013)
-      45505: Separate part (2013)
+    - 45544: LEGO® MINDSTORMS® Education EV3 Core Set (2013)
+    - 45505: Separate part (2013)
     """
 
     def __init__(self, port: Port, direction: Direction = Direction.CLOCKWISE):
         """
-        LEGO® MINDSTORMS® EV3 Gyro Sensor. Element 99380/6138411, contained in:
-          45544: LEGO® MINDSTORMS® Education EV3 Core Set (2013)
-          45505: Separate part (2013)
+        LEGO® MINDSTORMS® EV3 Gyro Sensor.
 
         ----------
         port : Port – Port to which the sensor is connected.
@@ -425,8 +391,7 @@ class GyroscopicSensor:
         Get the speed (angular velocity) of the sensor.
 
         ----------
-        Returns - Sensor angular velocity (deg/s).
-        Return type - float
+        Returns - Sensor angular velocity (degrees/second).
         """
         ...
 
@@ -435,8 +400,7 @@ class GyroscopicSensor:
         Get the accumulated angle of the sensor.
 
         ----------
-        Returns - Rotation angle (deg).
-        Return type - float
+        Returns - Rotation angle (degrees).
         """
         ...
 
