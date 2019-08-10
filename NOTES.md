@@ -1,3 +1,3 @@
-## Deviations from the LEGO<sup>&reg;</sup> API
+## Notes from the LEGO<sup>&reg;</sup> API
 
-The LEGO<sup>&reg;</sup> API reports the class name is GyroscopicSensor. Testing revealed that the name is actually GyroSensor, so that name is used in this package instead.
+Section 4.2.5 is titled Gyroscopic Sensor, but the Python class name is listed as GyroSensor. GyroSensor is the correct name, so that is the name used in the package.
