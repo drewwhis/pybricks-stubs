@@ -1,5 +1,4 @@
-from pybricks.parameters import (Align, Button, Color)
-
+from pybricks.parameters import (Align as Align, Color as Color)
 
 class sound:
     @classmethod
@@ -47,7 +46,7 @@ class display:
         """
 
     @classmethod
-    def image(cls, file_name: str, alignment: Align = Align.CENTER, coordinate: tuple = None, clear: bool = True):
+    def image(cls, file_name: str, alignment: _Align = _Align.CENTER, coordinate: tuple = None, clear: bool = True):
         """
         Show an image file. You can specify its placement either using alignmentor by specifying a coordinate, 
         but not both.
@@ -100,7 +99,7 @@ class battery:
         ...
 
 
-def buttons(channel: int) -> List[Button]:
+def buttons(channel: int) -> list:
     """
     Check which buttons on the infrared remote are pressed.
 
@@ -114,7 +113,7 @@ def buttons(channel: int) -> List[Button]:
     ...
 
 
-def light(color: Color):
+def light(color: _Color):
     """
     Set the color of the brick light.
 
