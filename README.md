@@ -5,3 +5,5 @@ This package is meant to provide typings (and IntelliSense) to those developing 
 This package does not support executing robot code on the computer or on the robot. This package does provide type hinting while writing Python code on the computer for later upload/deployment to the robot. 
 
 This package is **not** produced or maintained by LEGO<sup>&reg;</sup>, nor is it officially endorsed by LEGO<sup>&reg;</sup> or *FIRST*<sup>&reg;</sup>.
+
+Please report any issues you encounter.
