@@ -8,7 +8,7 @@ setuptools.setup(
         version="0.0.1",
         author="Lawrence (Drew) Whisenant",
         author_email="dwhisenant@FIRSTinAlabama.org",
-        description="An stubs package to write EV3 Python code.",
+        description="A stubs package to write EV3 Python code.",
         long_description=long_description,
         long_description_content_type="text/markdown",
         url="https://github.com/drewwhis/pybricks-stubs",
