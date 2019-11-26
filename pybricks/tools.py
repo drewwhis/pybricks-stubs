@@ -1,3 +1,5 @@
+import sys
+
 def print(*value, sep: str = ' ', end: str = '\n', file=sys.stdout, flush: bool = False):
     """
     Print values on the terminal or a stream
