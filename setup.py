@@ -5,9 +5,9 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
         name="pybricks-stubs",
-        version="0.0.2",
+        version="0.0.3",
         author="Lawrence (Drew) Whisenant",
-        author_email="dwhisenant@FIRSTinAlabama.org",
+        author_email="dwhisenant@firstpartners.org",
         description="A stubs package to write EV3 Python code.",
         long_description=long_description,
         long_description_content_type="text/markdown",
