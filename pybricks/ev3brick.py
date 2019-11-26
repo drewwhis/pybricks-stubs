@@ -3,8 +3,8 @@ from typing import List, Tuple
 
 
 class sound:
-    @classmethod
-    def beep(cls, frequency: int = 500, duration: int = 100, volume: int = 30):
+    @staticmethod
+    def beep(frequency: int = 500, duration: int = 100, volume: int = 30):
         """
         Play a beep/tone.
 
@@ -17,8 +17,8 @@ class sound:
         """
         ...
 
-    @classmethod
-    def beeps(cls, number: int):
+    @staticmethod
+    def beeps(number: int):
         """
         Play a number of default beeps with a brief pause in between.
 
@@ -27,8 +27,8 @@ class sound:
         """
         ...
 
-    @classmethod
-    def file(cls, file_name: str, volume: int = 100):
+    @staticmethod
+    def file(file_name: str, volume: int = 100):
         """
         Play a sound file.
 
@@ -41,14 +41,14 @@ class sound:
 
 
 class display:
-    @classmethod
-    def clear(cls):
+    @staticmethod
+    def clear():
         """
         Clear everything on the display.
         """
 
-    @classmethod
-    def image(cls, file_name: str, alignment: Align = Align.CENTER, coordinate: Tuple[int, int] = None, clear: bool = True):
+    @staticmethod
+    def image(file_name: str, alignment: Align = Align.CENTER, coordinate: Tuple[int, int] = None, clear: bool = True):
         """
         Show an image file. You can specify its placement either using alignmentor by specifying a coordinate, 
         but not both.
@@ -64,8 +64,8 @@ class display:
         """
         ...
 
-    @classmethod
-    def text(cls, text: str, coordinate: Tuple[int, int] = None):
+    @staticmethod
+    def text(text: str, coordinate: Tuple[int, int] = None):
         """
         Display text.
 
@@ -78,8 +78,8 @@ class display:
 
 
 class battery:
-    @classmethod
-    def current(cls) -> int:
+    @staticmethod
+    def current() -> int:
         """
         Get the current supplied by the battery.
 
@@ -88,8 +88,8 @@ class battery:
         """
         ...
 
-    @classmethod
-    def voltage(cls) -> int:
+    @staticmethod
+    def voltage() -> int:
         """
         Get the voltage of the battery.
 
