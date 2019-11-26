@@ -1,4 +1,6 @@
-class Align:
+from enum import Enum
+
+class Align(Enum):
     """
     Alignment of an image on the display.
     """
@@ -13,7 +15,7 @@ class Align:
     TOP_RIGHT: ...
 
 
-class Button:
+class Button(Enum):
     """
     Buttons on a brick or remote.
     """
@@ -29,7 +31,7 @@ class Button:
     RIGHT_UP: ...
 
 
-class Color:
+class Color(Enum):
     """
     Light or surface color.
     """
@@ -44,7 +46,7 @@ class Color:
     PURPLE: ...
 
 
-class Port:
+class Port(Enum):
     """
     Port on the EV3 Programmable Brick.
 
@@ -63,7 +65,7 @@ class Port:
     S4: ...
 
 
-class Direction:
+class Direction(Enum):
     """
     Rotational direction for positive speed values: clockwise or counterclockwise.
     For all motors, this is defined when looking at the shaft, just like looking at a clock.
@@ -78,7 +80,7 @@ class Direction:
     COUNTERCLOCKWISE: ...
 
 
-class Stop:
+class Stop(Enum):
     """
     Action after the motor stops: coast, brake, or hold.
 
@@ -94,7 +96,7 @@ class Stop:
     HOLD: ...
 
 
-class ImageFile:
+class ImageFile(Enum):
     """
     Paths to standard EV3 images.
 
@@ -147,7 +149,7 @@ class ImageFile:
     ANGRY: ...
 
 
-class SoundFile:
+class SoundFile(Enum):
     """
     Paths to standard EV3 sounds.
 
