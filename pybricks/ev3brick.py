@@ -48,7 +48,7 @@ class display:
         """
 
     @staticmethod
-    def image(file_name: Union[str,ImageFile], alignment: Align = Align.CENTER, coordinate: Tuple[int, int] = None, clear: bool = True):
+    def image(file_name: Union[str, ImageFile], alignment: Align = Align.CENTER, coordinate: Tuple[int, int] = None, clear: bool = True):
         """
         Show an image file. You can specify its placement either using alignmentor by specifying a coordinate, 
         but not both.
