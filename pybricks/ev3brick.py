@@ -1,4 +1,4 @@
-from pybricks.parameters import Align, Button, Color, ImageFile
+from pybricks.parameters import Align, Button, Color, ImageFile, SoundFile
 from typing import List, Tuple, Union
 
 
@@ -28,12 +28,12 @@ class sound:
         ...
 
     @staticmethod
-    def file(file_name: str, volume: int = 100):
+    def file(file_name: Union[str, SoundFile], volume: int = 100):
         """
         Play a sound file.
 
         ----------
-        file_name : str – Path to the sound file, including extension.
+        file_name : str – Path to the sound file, including extension. Paths can also be one of the SoundFile values.
 
         volume : int - Volume of the sound as a percent. (Default: 100).
         """
