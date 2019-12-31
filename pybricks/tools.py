@@ -40,7 +40,7 @@ class StopWatch:
         ----------
         Returns - Elapsed time in milliseconds.
         """
-        ...
+        return 0
 
     def pause(self):
         """
