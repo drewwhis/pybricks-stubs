@@ -86,7 +86,7 @@ class battery:
         ----------
         Returns - Battery current (mA).
         """
-        ...
+        return 0
 
     @staticmethod
     def voltage() -> int:
@@ -96,7 +96,7 @@ class battery:
         ----------
         Returns - Battery voltage (mV).
         """
-        ...
+        return 0
 
 
 def buttons() -> List[Button]:
@@ -106,7 +106,7 @@ def buttons() -> List[Button]:
     ----------
     Returns - List of pressed buttons.
     """
-    ...
+    return []
 
 
 def light(color: Color):
