@@ -10,7 +10,7 @@ This package does not support executing robot code on the computer or on the rob
 
 For version 1.0.0 and earlier, all typings are based on the [LEGO&reg; API 1.0.0](https://le-www-live-s.legocdn.com/sc/media/files/ev3-micropython/ev3micropythonv100-71d3f28c59a1e766e92a59ff8500818e.pdf).
 
-For versions after 1.0.0 (including a final 2.0.0 and the 1.0.* pre-releases for 2.0.0), all typings are based on the [LEGO&reg; API 2.0.0](https://pybricks.github.io/ev3-micropython/).
+For versions after 1.0.0 (including 2.0.x and the 1.0.* pre-releases for 2.0.0), all typings are based on the [LEGO&reg; API 2.0.0](https://pybricks.github.io/ev3-micropython/).
 
 ## Choosing Your Version
 
