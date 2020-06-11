@@ -10,7 +10,8 @@ class UltrasonicSensor:
     """
 
     def __init__(self, port: Port):
-        ...
+        if port == Port.A or port == Port.B or port == Port.C or port == Port.D:
+            raise ValueError("Sensors must use Port S1, S2, S3, or S4.")
 
     def distance(self) -> int:
         """

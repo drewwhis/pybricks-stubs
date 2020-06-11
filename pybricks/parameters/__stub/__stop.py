@@ -10,6 +10,6 @@ class Stop(Enum):
         BRAKE: Passively resist small external forces.
         HOLD: Keep controlling the motor to hold it at the commanded angle. This is only available on motors with encoders.
     """
-    COAST = ...
-    BRAKE = ...
-    HOLD = ...
+    COAST = "COAST"
+    BRAKE = "BRAKE"
+    HOLD = "HOLD"

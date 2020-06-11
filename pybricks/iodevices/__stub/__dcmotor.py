@@ -11,7 +11,8 @@ class DCMotor:
     """
 
     def __init__(self, port: Port, positive_direction: Direction = Direction.CLOCKWISE):
-        ...
+        if port == Port.S1 or port == Port.S2 or port == Port.S3 or port == Port.S4:
+            raise ValueError("Motors must use Port A, B, C, or D.")
 
     def dc(self, duty: int):
         """

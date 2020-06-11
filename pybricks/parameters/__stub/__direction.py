@@ -12,5 +12,5 @@ class Direction(Enum):
         By default, the positive direction is set as clockwise.
 
     """
-    CLOCKWISE = ...
-    COUNTERCLOCKWISE = ...
+    CLOCKWISE = "CLOCKWISE"
+    COUNTERCLOCKWISE = "COUNTERCLOCKWISE"

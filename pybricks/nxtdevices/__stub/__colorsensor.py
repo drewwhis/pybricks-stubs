@@ -15,6 +15,8 @@ class ColorSensor:
     """
 
     def __init__(self, port: Port):
+        if port == Port.A or port == Port.B or port == Port.C or port == Port.D:
+            raise ValueError("Sensors must use Port S1, S2, S3, or S4.")
         self.light = Light()
 
     def color(self) -> Color:
@@ -24,7 +26,7 @@ class ColorSensor:
         Returns:
             Color.BLACK, Color.BLUE, Color.GREEN, Color.YELLOW, Color.RED, Color.WHITE or None if no color is detected.
         """
-        return None
+        return Color.BLACK
 
     def ambient(self) -> int:
         """
