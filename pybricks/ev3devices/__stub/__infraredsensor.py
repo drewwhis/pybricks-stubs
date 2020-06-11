@@ -33,6 +33,8 @@ class InfraredSensor:
         Returns:
             Tuple of relative distance (0 to 100) and approximate angle (-75 to 75 degrees) between remote and infrared sensor or (None,None) if no remote is detected.
         """
+        if not channel in range(1,5):
+            raise ValueError('Channel must be 1, 2, 3, or 4.')
         return (0, 0)
 
     def buttons(self, channel: int) -> List[Button]:
@@ -47,6 +49,8 @@ class InfraredSensor:
         Returns:
             List of pressed buttons on the remote on the specified channel.
         """
+        if not channel in range(1,5):
+            raise ValueError('Channel must be 1, 2, 3, or 4.') 
         return []
 
     def keypad(self) -> List[Button]:

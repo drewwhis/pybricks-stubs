@@ -18,7 +18,7 @@ class LUMPDevice:
         Reads values from a given mode.
 
         Args:
-            mode (int): Device mode.s
+            mode (int): Device mode.
 
         Returns:
             Values read from the sensor.

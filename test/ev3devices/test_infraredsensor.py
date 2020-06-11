@@ -26,7 +26,28 @@ class TestInfraredSensor(TestCase):
 
     def test_beacon(self):
         sensor = InfraredSensor(Port.S1)
-        result = sensor.beacon(0)
+        self.assertRaises(ValueError, sensor.beacon, 0)
+        self.assertRaises(ValueError, sensor.beacon, 5)
+
+        result = sensor.beacon(1)
+        self.assertIsInstance(result, tuple)
+        self.assertEqual(2, len(result))
+        self.assertEqual(0, result[0])
+        self.assertEqual(0, result[1])
+
+        result = sensor.beacon(2)
+        self.assertIsInstance(result, tuple)
+        self.assertEqual(2, len(result))
+        self.assertEqual(0, result[0])
+        self.assertEqual(0, result[1])
+
+        result = sensor.beacon(3)
+        self.assertIsInstance(result, tuple)
+        self.assertEqual(2, len(result))
+        self.assertEqual(0, result[0])
+        self.assertEqual(0, result[1])
+
+        result = sensor.beacon(4)
         self.assertIsInstance(result, tuple)
         self.assertEqual(2, len(result))
         self.assertEqual(0, result[0])
@@ -34,7 +55,16 @@ class TestInfraredSensor(TestCase):
 
     def test_buttons(self):
         sensor = InfraredSensor(Port.S1)
-        result = sensor.buttons(0)
+        self.assertRaises(ValueError, sensor.buttons, 0)
+        self.assertRaises(ValueError, sensor.buttons, 5)
+
+        result = sensor.buttons(1)
+        self.assertIsInstance(result, list)
+        result = sensor.buttons(2)
+        self.assertIsInstance(result, list)
+        result = sensor.buttons(3)
+        self.assertIsInstance(result, list)
+        result = sensor.buttons(4)
         self.assertIsInstance(result, list)
 
     def test_keypad(self):
